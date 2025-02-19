@@ -1,0 +1,76 @@
+# Bitcoin Moving Average Alert
+
+This project fetches the current price of Bitcoin in USD and compares it to the 5, 10, 20, 50, and 100-day moving averages. If the current price is lower than any of these moving averages, an alert is printed to the console.
+
+## Requirements
+
+- Python 3.x
+- `requests` library
+- `yfinance` library
+- `pandas` library
+
+## Installation
+
+1. Clone the repository or download the project files.
+2. Install the required libraries using pip:
+
+    ```sh
+    pip install requests yfinance pandas
+    ```
+
+## Usage
+
+1. Open a terminal or command prompt.
+2. Navigate to the project directory.
+3. Run the script:
+
+    ```sh
+    python btc_moving_average_alert.py
+    ```
+
+## Project Structure
+
+- [btc_moving_average_alert.py](http://_vscodecontentref_/0): The main script that fetches the current Bitcoin price, calculates moving averages, and prints alerts if necessary.
+
+## Functions
+
+### [fetch_btc_price()](http://_vscodecontentref_/1)
+
+Fetches the current price of Bitcoin in USD from the Coindesk API.
+
+### [fetch_historical_data()](http://_vscodecontentref_/2)
+
+Fetches the historical Bitcoin price data for the last 100 days from Yahoo Finance.
+
+### [calculate_moving_averages(data)](http://_vscodecontentref_/3)
+
+Calculates the 5, 10, 20, 50, and 100-day moving averages from the provided historical data.
+
+### [send_alert(message)](http://_vscodecontentref_/4)
+
+Prints the alert message to the console. You can modify this function to send email alerts or use other notification methods.
+
+### [main()](http://_vscodecontentref_/5)
+
+The main function that orchestrates the fetching of data, calculation of moving averages, and checking if an alert is needed.
+
+## Debugging
+
+The script includes print statements for debugging purposes. These print the response status code, content, and parsed data from the Coindesk API, as well as the historical data and calculated moving averages.
+
+## Scheduling
+
+You can use Windows Task Scheduler to run this script every hour. Here are the steps:
+
+1. Open Task Scheduler and create a new task.
+2. Set the trigger to run the task every hour.
+3. Set the action to run the Python script. The action should be something like:
+    ```
+    Program/script: python
+    Add arguments: "C:\path\to\your\script\btc_moving_average_alert.py"
+    Start in: "C:\path\to\your\script"
+    ```
+
+## License
+
+This project is licensed under the MIT License.
